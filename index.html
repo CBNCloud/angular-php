@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Belajar AngularJs</title>
+</head>
+<body ng-app="FirstApp">
+<div ng-controller="MainController">
+    <div ng-repeat="booking in books">
+        {{booking.title}} </br>
+        {{booking.author}} </br>
+        {{booking.price | currency:"":0}} </br>
+        {{booking.pubdate | date}}
+        <button ng-click="logToConsole($index)">Log</button>
+        <hr/>
+    </div>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Company</th>
+        </tr>
+
+        <tr ng-repeat="u in users">
+            <td>{{u.name}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.website}}</td>
+            <td>{{u.company.name}}</td>
+        </tr>
+    </table>
+</div>
+
+<div ng-controller="ProductController">
+    <h1>{{title | lowercase}}</h1>
+    {{book.title}} </br>
+    {{book.author}} </br>
+    {{book.price}}
+
+    Title : <input type="text" ng-model="harga"/> </br>
+    {{harga}} </br>
+    <button ng-click="log()">Log</button>
+</div>
+
+<div ng-controller="HttpController">
+    <p>First Name: <input type="text" name="firstName" ng-model="firstName" required/></p>
+    <p>First Name: <input type="text" name="lastName" ng-model="lastName" required/></p>
+    <button ng-click="SendData()">Submit</button>
+    <hr/>
+    {{ PostDataResponse }}
+</div>
+
+
+<script src="js/angular.min.js"></script>
+<script src="js/module/app.js"></script>
+<script src="js/controllers/HttpController.js"></script>
+<script src="js/controllers/MainController.js"></script>
+<script src="js/controllers/ProductController.js"></script>
+</body>
+</html>

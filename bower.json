@@ -1,0 +1,22 @@
+{
+  "name": "belajar-angular",
+  "authors": [
+    "febririzki461 <febry.rizky@cbncloud.co.id>"
+  ],
+  "description": "belajar angular bro",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "angular": "^1.6.10"
+  }
+}
