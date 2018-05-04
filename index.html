@@ -4,59 +4,38 @@
     <title>Belajar AngularJs</title>
 </head>
 <body ng-app="FirstApp">
-<div ng-controller="MainController">
-    <div ng-repeat="booking in books">
-        {{booking.title}} </br>
-        {{booking.author}} </br>
-        {{booking.price | currency:"":0}} </br>
-        {{booking.pubdate | date}}
-        <button ng-click="logToConsole($index)">Log</button>
-        <hr/>
-    </div>
+<div ng-controller="IndexController">
+    <form>
+        <p>Fill the form</p>
+        <div>
+            <label>Name</label>
+            <input type="text" ng-model="newName">
+        </div>
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Website</th>
-            <th>Company</th>
-        </tr>
+        <div>
+            <label>Phone</label>
+            <input type="text" ng-model="newPhone">
+        </div>
 
-        <tr ng-repeat="u in users">
-            <td>{{u.name}}</td>
-            <td>{{u.username}}</td>
-            <td>{{u.email}}</td>
-            <td>{{u.website}}</td>
-            <td>{{u.company.name}}</td>
-        </tr>
-    </table>
-</div>
+        <input type="button" value="Add" ng-click="addPerson()">
 
-<div ng-controller="ProductController">
-    <h1>{{title | lowercase}}</h1>
-    {{book.title}} </br>
-    {{book.author}} </br>
-    {{book.price}}
+    </form>
 
-    Title : <input type="text" ng-model="harga"/> </br>
-    {{harga}} </br>
-    <button ng-click="log()">Log</button>
-</div>
+    <h2>The list</h2>
+    <p>The names that were added with the form.</p>
 
-<div ng-controller="HttpController">
-    <p>First Name: <input type="text" name="firstName" ng-model="firstName" required/></p>
-    <p>First Name: <input type="text" name="lastName" ng-model="lastName" required/></p>
-    <button ng-click="SendData()">Submit</button>
-    <hr/>
-    {{ PostDataResponse }}
+    <ul>
+        <li ng-repeat="person in people">
+            <button ng-click="deletePerson( person.id )">Delete</button>
+            {{ person.name }} {{ person.phone }}
+        </li>
+    </ul>
+
 </div>
 
 
 <script src="js/angular.min.js"></script>
 <script src="js/module/app.js"></script>
-<script src="js/controllers/HttpController.js"></script>
-<script src="js/controllers/MainController.js"></script>
-<script src="js/controllers/ProductController.js"></script>
+<script src="js/controllers/IndexController.js"></script>
 </body>
 </html>
